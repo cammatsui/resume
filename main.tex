@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1.0in}
+\usepackage{changepage}
+\usepackage[normalem]{ulem}
+
+\begin{document}
+
+% header for the resume with name, address, email, phone, website.
+\newcommand{\resumeheader}[5]{
+    \begin{center}
+        \textbf{\LARGE #1} \\
+        #2 \\
+        #3 $|$ #4 $|$ #5
+    \end{center}
+    \medskip
+}
+
+% big header for sections such as "EDUCATION"
+\newcommand{\sectionheader}[1]{
+    \noindent\uline{\textbf{\large #1} \hfill}
+    \medskip
+}
+
+% header for section items such as "___ University"
+\newcommand{\sectionitemheader}[4]{
+    \noindent\textbf{#1} 
+    \hfill
+    \textbf{#2} \\
+    \noindent\textit{#3}
+    \hfill
+    #4
+}
+
+% header for section items without location/italicized subtitle
+\newcommand{\litesectionitemheader}[2]{
+    \noindent\textbf{#1} 
+    \hfill
+    \textbf{#2}
+}
+
+% environment for sections such as "EDUCATION"
+\newenvironment{bigsection}[1]
+    {
+        \sectionheader{#1}
+            \begin{adjustwidth}{.25cm}{}
+    }
+    {
+            \end{adjustwidth}
+            \smallskip
+    }
+
+% environment for section with only bullets (no items), such as "TECHNICAL SKILLS"
+\newenvironment{litebigsection}[1]
+    {
+        \sectionheader{#1}
+            \begin{adjustwidth}{.25cm}{}
+                \begin{itemize}
+    }
+    {
+                \end{itemize}
+            \end{adjustwidth}
+        \smallskip
+    }
+
+% environment for section items such as "___ University"
+\newenvironment{sectionitem}[4]
+    {
+        \sectionitemheader{#1}{#2}{#3}{#4}
+        \begin{adjustwidth}{.25cm}{}
+            \begin{itemize}
+    }
+    {
+            \end{itemize}
+        \end{adjustwidth}
+        \medskip
+    }
+
+% environment for section items without location/italicized subtitle
+\newenvironment{litesectionitem}[2]
+    {
+        \litesectionitemheader{#1}{#2}
+        \begin{adjustwidth}{.25cm}{}
+            \begin{itemize}
+    }
+    {
+            \end{itemize}
+        \end{adjustwidth}
+        \medskip
+    }
+
+\thispagestyle{empty}
+
+% Resume Header
+\resumeheader{Cameron Matsui}{1809 Collier St, Austin TX 78704}
+        {cmatsui22@amherst.edu}{(443) 794-1307}{cammatsui.github.io}
+
+% Education Section
+\begin{bigsection}{EDUCATION}
+    % Amherst College
+    \begin{sectionitem}{Amherst College}{Amherst, MA}
+            {Bachelor of Arts in Mathematics and Computer Science}
+            {Expected December 2022}
+        \item Cumulative GPA: 3.95/4.00
+        \item Major GPA: 4.00/4.00
+    \end{sectionitem}
+\end{bigsection}
+
+% Experience Section
+\begin{bigsection}{EXPERIENCE}
+    % Meta
+    \begin{sectionitem}{Meta (Formerly Facebook)}{Seattle, WA}
+            {Software Engineering Intern}{June 2022 - August 2022}
+        \item Worked on the Billing Product Infrastructure team
+        \item Enabled refunds for local payment methods (LPMs) providers
+    \end{sectionitem}
+
+    % Gregory S. Call
+    \begin{sectionitem}{Amherst College}{Amherst, MA}
+            {Gregory S. Call Summer Research Fellow}{June - July 2021}
+        \item Studied adverserial queueing theory, a model of packet forwarding in theoretical computer science
+        \item Wrote software to simulate the model and proved total load equialence for a class of forwarding protocols
+    \end{sectionitem}
+
+    % UT Research
+    \begin{sectionitem}{The University of Texas at Austin, Department of Integrative Biology}{Austin, TX}
+            {Research Fellow, UT COVID-19 Modeling Consortium, and the Meyers Lab}{May 2020 - January 2021}
+        \item Researched the transmission dynamics of COVID-19
+        \item Assisted the University of Texas at Austin in reopening for the fall and spring semesters of 2020-2021
+    \end{sectionitem}
+\end{bigsection}
+
+% Projects and Activites Section
+\begin{bigsection}{PROJECTS}
+    % RateOurCourses.com
+    \begin{sectionitem}{RateOurCourses.com}{Amherst, MA}{Full Stack Web Development}{October 2020 - Present}
+        \item RateOurCourses.com is a student-run course review site that helps Amherst College students choose their
+                courses
+        \item Rearchitected and implemented site using Flask, a Python web framework
+        \item Site hosted on AWS Elastic Beanstalk
+    \end{sectionitem}
+
+    % TaskTree
+    \begin{litesectionitem}{TaskTree}{July 2022-Present}
+        \item TaskTree is a CLI project-planning and task-management tool written in Rust
+        \item Available at github.com/cammatsui/tasktree
+    \end{litesectionitem}
+
+    % ModularEpi
+    \begin{litesectionitem}{ModularEpi}{November 2020 - January 2021}
+        \item ModularEpi is a flexible Python framework for building and running compartmental epidemiological models
+        \item Features include metapopulation modeling and programmatic construction of the next-generation matrix to
+            calculate $R_0$
+        \item Available at github.com/cammatsui/modularepi
+    \end{litesectionitem}
+\end{bigsection}
+\begin{adjustwidth}{0.2cm}{}View more projects at cammatsui.github.io\end{adjustwidth}
+\vspace{0.1in}
+
+
+% Technical Skills Section
+\begin{litebigsection}{PROGRAMMING LANGUAGES AND TECHNOLOGIES}
+    \item Proficient in Java, Python, JavaScript/TypeScript, and Hack
+    \item Working knowledge of Rust, C++, Apache Thrift, and Linux
+    \item Experience with R, MySQL, and HTML
+\end{litebigsection}
+
+\end{document}
